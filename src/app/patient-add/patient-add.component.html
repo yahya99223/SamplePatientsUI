@@ -1,0 +1,40 @@
+<div class="example-container mat-elevation-z8">
+        <div class="example-loading-shade"
+             *ngIf="isLoadingResults">
+          <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+        </div>
+        <div class="button-row">
+          <a mat-flat-button color="primary" [routerLink]="['/patients']"><mat-icon>list</mat-icon></a>
+        </div>
+        <mat-card class="example-card">
+          <form [formGroup]="patientForm" (ngSubmit)="onFormSubmit(patientForm.value)">
+
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Patient Name" formControlName="name"
+                     [errorStateMatcher]="matcher">
+              <mat-error>
+                <span *ngIf="!patientForm.get('name').valid && patientForm.get('name').touched">Please enter Patient Name</span>
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Patient nationality" formControlName="nationality"
+                     [errorStateMatcher]="matcher">
+              <mat-error>
+                <span *ngIf="!patientForm.get('nationality').valid && patientForm.get('nationality').touched">Please enter Patient Description</span>
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Patient phoneNumber" formControlName="phoneNumber"
+                     [errorStateMatcher]="matcher">
+              <mat-error>
+                <span *ngIf="!patientForm.get('phoneNumber').valid && patientForm.get('phoneNumber').touched">Please enter Patient Price</span>
+              </mat-error>
+            </mat-form-field>
+            <div class="button-row">
+              <button type="submit" [disabled]="!patientForm.valid" mat-flat-button color="primary"><mat-icon>save</mat-icon></button>
+            </div>
+          </form>
+        </mat-card>
+      </div>
