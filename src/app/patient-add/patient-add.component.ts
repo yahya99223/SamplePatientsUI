@@ -20,12 +20,23 @@ export class PatientAddComponent implements OnInit {
     this.patientForm= new FormGroup({
       name: new FormControl(),
       nationality: new FormControl(),
-      phoneNumber: new FormControl()
+      phoneNumber: new FormControl(),
+      fileNo:new FormControl(),
+      citizenId:new FormControl(),
+      Birthdate:new FormControl(),
+      Gender:new FormControl(),
+      Vip:new FormControl(),
+
    });
     this.patientForm = this.formBuilder.group({
       'name' : [null, Validators.required],
       'nationality' : [null, Validators.required],
-      'phoneNumber' : [null, Validators.required]
+      'phoneNumber' : [null, Validators.required],
+      'fileNo':[null, Validators.required],
+      'citizenId':[null, Validators.required],
+      'Birthdate':[null, Validators.required],
+      'Gender':[null, Validators.required],
+      'Vip':[null, Validators.required],
     });
   }
   onFormSubmit(form:NgForm) {

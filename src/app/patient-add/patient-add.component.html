@@ -10,7 +10,7 @@
           <form [formGroup]="patientForm" (ngSubmit)="onFormSubmit(patientForm.value)">
 
             <mat-form-field class="example-full-width">
-              <input matInput placeholder="Patient Name" formControlName="name"
+              <input matInput placeholder="Name" formControlName="name"
                      [errorStateMatcher]="matcher">
               <mat-error>
                 <span *ngIf="!patientForm.get('name').valid && patientForm.get('name').touched">Please enter Patient Name</span>
@@ -18,7 +18,47 @@
             </mat-form-field>
 
             <mat-form-field class="example-full-width">
-              <input matInput placeholder="Patient nationality" formControlName="nationality"
+              <input matInput type="number" placeholder="File No" formControlName="fileNo"
+                     [errorStateMatcher]="matcher">
+              <mat-error>
+                <span *ngIf="!patientForm.get('fileNo').valid && patientForm.get('fileNo').touched">Please enter Patient File No</span>
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Citizen Id" formControlName="citizenId"
+                     [errorStateMatcher]="matcher">
+              <mat-error>
+                <span *ngIf="!patientForm.get('citizenId').valid && patientForm.get('citizenId').touched">Please enter Citizen Id</span>
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+              <input matInput type="datetime" placeholder="Birthdate" formControlName="Birthdate"
+                     [errorStateMatcher]="matcher">
+              <mat-error>
+                <span *ngIf="!patientForm.get('Birthdate').valid && patientForm.get('Birthdate').touched">Please enter Birthdate</span>
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Gender" formControlName="Gender"
+                     [errorStateMatcher]="matcher">
+              <mat-error>
+                <span *ngIf="!patientForm.get('Gender').valid && patientForm.get('Gender').touched">Please enter Gender</span>
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+              <input matInput type="text" formControlName="Vip"
+                     [errorStateMatcher]="matcher">
+              <mat-error>
+                <span *ngIf="!patientForm.get('Vip').valid && patientForm.get('Vip').touched">Please enter Gender</span>
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Nationality" formControlName="nationality"
                      [errorStateMatcher]="matcher">
               <mat-error>
                 <span *ngIf="!patientForm.get('nationality').valid && patientForm.get('nationality').touched">Please enter Patient Description</span>
@@ -26,7 +66,7 @@
             </mat-form-field>
 
             <mat-form-field class="example-full-width">
-              <input matInput placeholder="Patient phoneNumber" formControlName="phoneNumber"
+              <input matInput placeholder="Phone Number" formControlName="phoneNumber"
                      [errorStateMatcher]="matcher">
               <mat-error>
                 <span *ngIf="!patientForm.get('phoneNumber').valid && patientForm.get('phoneNumber').touched">Please enter Patient Price</span>
