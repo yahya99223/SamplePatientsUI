@@ -1,75 +1,86 @@
-<div class="example-container mat-elevation-z8">
-        <div class="example-loading-shade"
+<div class="container mat-elevation-z8">
+        <div class="loading-shade"
              *ngIf="isLoadingResults">
           <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
         </div>
         <div class="button-row">
           <a mat-flat-button color="primary" [routerLink]="['/patients']"><mat-icon>list</mat-icon></a>
         </div>
-        <mat-card class="example-card">
+        <mat-card class="card">
           <form [formGroup]="patientForm" (ngSubmit)="onFormSubmit(patientForm.value)">
 
-            <mat-form-field class="example-full-width">
-              <input matInput placeholder="Name" formControlName="name"
-                     [errorStateMatcher]="matcher">
+            <mat-form-field class="form-field">
+              <label>Name</label>
+              <input matInput type="text" formControlName="name" [errorStateMatcher]="matcher">
               <mat-error>
                 <span *ngIf="!patientForm.get('name').valid && patientForm.get('name').touched">Please enter Patient Name</span>
               </mat-error>
             </mat-form-field>
 
-            <mat-form-field class="example-full-width">
-              <input matInput type="number" placeholder="File No" formControlName="fileNo"
-                     [errorStateMatcher]="matcher">
+            <mat-form-field class="form-field">
+                <label>File No</label>
+              <input matInput type="number" formControlName="fileNo"[errorStateMatcher]="matcher">
               <mat-error>
                 <span *ngIf="!patientForm.get('fileNo').valid && patientForm.get('fileNo').touched">Please enter Patient File No</span>
               </mat-error>
             </mat-form-field>
 
-            <mat-form-field class="example-full-width">
-              <input matInput placeholder="Citizen Id" formControlName="citizenId"
-                     [errorStateMatcher]="matcher">
+            <mat-form-field class="form-field">
+              <label>Citizen Id</label>
+              <input matInput type="text" formControlName="citizenId" [errorStateMatcher]="matcher">
               <mat-error>
                 <span *ngIf="!patientForm.get('citizenId').valid && patientForm.get('citizenId').touched">Please enter Citizen Id</span>
               </mat-error>
             </mat-form-field>
 
-            <mat-form-field class="example-full-width">
-              <input matInput type="datetime" placeholder="Birthdate" formControlName="Birthdate"
-                     [errorStateMatcher]="matcher">
+            <mat-form-field class="form-field">
+              <label>Birthdate</label>
+              <input matInput type="datetime"  formControlName="Birthdate" [errorStateMatcher]="matcher">
               <mat-error>
                 <span *ngIf="!patientForm.get('Birthdate').valid && patientForm.get('Birthdate').touched">Please enter Birthdate</span>
               </mat-error>
             </mat-form-field>
 
-            <mat-form-field class="example-full-width">
-              <input matInput placeholder="Gender" formControlName="Gender"
-                     [errorStateMatcher]="matcher">
+            <div class="form-field">
+              <label>Gender</label>
+              <select matInput formControlName="Gender">
+                <option disabled>Select Gender</option>
+                <option *ngFor="let gender of genders">{{gender}}</option>
+              </select>
               <mat-error>
                 <span *ngIf="!patientForm.get('Gender').valid && patientForm.get('Gender').touched">Please enter Gender</span>
               </mat-error>
-            </mat-form-field>
+            </div>
 
-            <mat-form-field class="example-full-width">
-              <input matInput type="text" formControlName="Vip"
-                     [errorStateMatcher]="matcher">
+            <div class="form-field">
+              <label>Vip</label>
+              <input type="checkbox" formControlName="Vip">
               <mat-error>
-                <span *ngIf="!patientForm.get('Vip').valid && patientForm.get('Vip').touched">Please enter Gender</span>
+                <span *ngIf="!patientForm.get('Vip').valid && patientForm.get('Vip').touched"></span>
+              </mat-error>
+            </div>
+
+            <mat-form-field class="form-field">
+              <label>Nationality</label>
+              <input matInput type="text" formControlName="nationality" [errorStateMatcher]="matcher">
+              <mat-error>
+                <span *ngIf="!patientForm.get('nationality').valid && patientForm.get('nationality').touched">Please enter Nationality</span>
               </mat-error>
             </mat-form-field>
 
-            <mat-form-field class="example-full-width">
-              <input matInput placeholder="Nationality" formControlName="nationality"
-                     [errorStateMatcher]="matcher">
+            <mat-form-field class="form-field">
+              <label>Phone Number</label>
+              <input matInput  type="tel" formControlName="phoneNumber" [errorStateMatcher]="matcher">
               <mat-error>
-                <span *ngIf="!patientForm.get('nationality').valid && patientForm.get('nationality').touched">Please enter Patient Description</span>
+                <span *ngIf="!patientForm.get('phoneNumber').valid && patientForm.get('phoneNumber').touched">Please enter Phone number</span>
               </mat-error>
             </mat-form-field>
 
-            <mat-form-field class="example-full-width">
-              <input matInput placeholder="Phone Number" formControlName="phoneNumber"
-                     [errorStateMatcher]="matcher">
+            <mat-form-field class="form-field">
+              <label>Email</label>
+              <input matInput type="email" formControlName="email" [errorStateMatcher]="matcher">
               <mat-error>
-                <span *ngIf="!patientForm.get('phoneNumber').valid && patientForm.get('phoneNumber').touched">Please enter Patient Price</span>
+                <span *ngIf="!patientForm.get('email').valid && patientForm.get('email').touched">Please enter Email</span>
               </mat-error>
             </mat-form-field>
             <div class="button-row">

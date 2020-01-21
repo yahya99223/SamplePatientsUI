@@ -44,8 +44,8 @@ export class HospitalApiService {
     );
   }
   
-  private handleError (operation = 'operation', result?: ErrorResponse) {
-    return (error: any): Observable<ErrorResponse> => {
+  private handleError (operation = 'operation') {
+    return (error: any) => {
       console.log(error.error);
       throw(error.error as ErrorResponse);
     };

@@ -17,6 +17,7 @@
           <dt>First Visit At:</dt>
           <dd>{{patient.firstVisitDate | date}}</dd>
         </dl>
+        <img src={{patient.image}}/>
       </mat-card-content>
       <mat-card-actions>
         <a mat-flat-button color="warn" (click)="deletePatient(patient.id)"><mat-icon>delete</mat-icon></a>

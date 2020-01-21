@@ -13,6 +13,7 @@ export class PatientAddComponent implements OnInit {
   name:string='';
   nationality:string='';
   phoneNumber:string='';
+  email:string;
   fileNo:number;
   citizenId:string='';
   Birthdate:Date;
@@ -20,6 +21,7 @@ export class PatientAddComponent implements OnInit {
   Vip:boolean;
   message:string='';
   isLoadingResults = false;
+  genders: any = ['Male', 'Female']
   constructor(private router: Router, private api: HospitalApiService, private formBuilder: FormBuilder) { }
 
   ngOnInit() {
@@ -27,6 +29,7 @@ export class PatientAddComponent implements OnInit {
       name: new FormControl(),
       nationality: new FormControl(),
       phoneNumber: new FormControl(),
+      email:new FormControl(),
       fileNo:new FormControl(),
       citizenId:new FormControl(),
       Birthdate:new FormControl(),
@@ -38,6 +41,7 @@ export class PatientAddComponent implements OnInit {
       'name' : [null, Validators.required],
       'nationality' : [null, Validators.required],
       'phoneNumber' : [null, Validators.required],
+      'email' : [null, Validators.required],
       'fileNo':[null, Validators.required],
       'citizenId':[null, Validators.required],
       'Birthdate':[null, Validators.required],
