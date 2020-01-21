@@ -13,6 +13,12 @@ export class PatientAddComponent implements OnInit {
   name:string='';
   nationality:string='';
   phoneNumber:string='';
+  fileNo:number;
+  citizenId:string='';
+  Birthdate:Date;
+  Gender:string='';
+  Vip:boolean;
+  message:string='';
   isLoadingResults = false;
   constructor(private router: Router, private api: HospitalApiService, private formBuilder: FormBuilder) { }
 
@@ -44,8 +50,10 @@ export class PatientAddComponent implements OnInit {
     this.api.addPatient(form)
       .subscribe(res => {
           this.isLoadingResults = false;
+          this.message="Success!";
         }, (err) => {
           console.log(err);
+          this.message = err;
           this.isLoadingResults = false;
         });
   }
