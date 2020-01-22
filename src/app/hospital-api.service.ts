@@ -7,7 +7,7 @@ import{ErrorResponse} from './Error';
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
-const apiUrl = "https://localhost:5001/v1/patients";
+const apiUrl = "http://localhost:1992/v1/patients";
 @Injectable({
   providedIn: 'root'
 })

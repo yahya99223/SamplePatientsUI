@@ -13,7 +13,7 @@
               <label>Name</label>
               <input matInput type="text" formControlName="name" [errorStateMatcher]="matcher">
               <mat-error>
-                <span *ngIf="!patientForm.get('name').valid && patientForm.get('name').touched">Please enter Patient Name</span>
+                <span *ngIf="!patientForm.get('name').valid && patientForm.get('name').touched">this field is required</span>
               </mat-error>
             </mat-form-field>
 
@@ -21,7 +21,7 @@
                 <label>File No</label>
               <input matInput type="number" formControlName="fileNo"[errorStateMatcher]="matcher">
               <mat-error>
-                <span *ngIf="!patientForm.get('fileNo').valid && patientForm.get('fileNo').touched">Please enter Patient File No</span>
+                <span *ngIf="!patientForm.get('fileNo').valid && patientForm.get('fileNo').touched">this field is required</span>
               </mat-error>
             </mat-form-field>
 
@@ -29,26 +29,32 @@
               <label>Citizen Id</label>
               <input matInput type="text" formControlName="citizenId" [errorStateMatcher]="matcher">
               <mat-error>
-                <span *ngIf="!patientForm.get('citizenId').valid && patientForm.get('citizenId').touched">Please enter Citizen Id</span>
+                <span *ngIf="!patientForm.get('citizenId').valid && patientForm.get('citizenId').touched">this field is required</span>
               </mat-error>
             </mat-form-field>
 
             <mat-form-field class="form-field">
               <label>Birthdate</label>
-              <input matInput type="datetime"  formControlName="Birthdate" [errorStateMatcher]="matcher">
-              <mat-error>
-                <span *ngIf="!patientForm.get('Birthdate').valid && patientForm.get('Birthdate').touched">Please enter Birthdate</span>
-              </mat-error>
+              <input matInput [matDatepicker]="birthdate" formControlName="birthdate">
+              <mat-datepicker-toggle matSuffix [for]="birthdate"></mat-datepicker-toggle>
+              <mat-datepicker #birthdate></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field class="form-field">
+              <label>First Visit Date</label>
+              <input matInput [matDatepicker]="firstVisitDate" formControlName="firstVisitDate">
+              <mat-datepicker-toggle matSuffix [for]="firstVisitDate"></mat-datepicker-toggle>
+              <mat-datepicker #firstVisitDate></mat-datepicker>
             </mat-form-field>
 
             <div class="form-field">
               <label>Gender</label>
               <select matInput formControlName="Gender">
-                <option disabled>Select Gender</option>
+                <option [value]="null">Please Select</option>
                 <option *ngFor="let gender of genders">{{gender}}</option>
               </select>
               <mat-error>
-                <span *ngIf="!patientForm.get('Gender').valid && patientForm.get('Gender').touched">Please enter Gender</span>
+                <span *ngIf="!patientForm.get('Gender').valid && patientForm.get('Gender').touched">this field is required</span>
               </mat-error>
             </div>
 
@@ -64,7 +70,7 @@
               <label>Nationality</label>
               <input matInput type="text" formControlName="nationality" [errorStateMatcher]="matcher">
               <mat-error>
-                <span *ngIf="!patientForm.get('nationality').valid && patientForm.get('nationality').touched">Please enter Nationality</span>
+                <span *ngIf="!patientForm.get('nationality').valid && patientForm.get('nationality').touched">this field is required</span>
               </mat-error>
             </mat-form-field>
 
@@ -72,7 +78,7 @@
               <label>Phone Number</label>
               <input matInput  type="tel" formControlName="phoneNumber" [errorStateMatcher]="matcher">
               <mat-error>
-                <span *ngIf="!patientForm.get('phoneNumber').valid && patientForm.get('phoneNumber').touched">Please enter Phone number</span>
+                <span *ngIf="!patientForm.get('phoneNumber').valid && patientForm.get('phoneNumber').touched">this field is required</span>
               </mat-error>
             </mat-form-field>
 
@@ -80,11 +86,11 @@
               <label>Email</label>
               <input matInput type="email" formControlName="email" [errorStateMatcher]="matcher">
               <mat-error>
-                <span *ngIf="!patientForm.get('email').valid && patientForm.get('email').touched">Please enter Email</span>
+                <span *ngIf="!patientForm.get('email').valid && patientForm.get('email').touched">Please enter a valid Email</span>
               </mat-error>
             </mat-form-field>
             <div class="button-row">
-              <button type="submit" [disabled]="!patientForm.valid" mat-flat-button color="primary"><mat-icon>save</mat-icon></button>
+              <button type="submit"  mat-flat-button color="primary"><mat-icon>save</mat-icon></button>
             </div>
           </form>
         </mat-card>

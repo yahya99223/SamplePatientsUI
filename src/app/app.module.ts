@@ -17,6 +17,8 @@ import {
   MatSortModule,
   MatTableModule,
   MatIconModule,
+  MatNativeDateModule,
+  MatDatepickerModule,
   MatButtonModule,
   MatCardModule,
   MatFormFieldModule } from "@angular/material";
@@ -37,6 +39,8 @@ import {
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatInputModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,

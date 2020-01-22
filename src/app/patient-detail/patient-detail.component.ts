@@ -21,9 +21,6 @@ Street:'',VIP:false};
     this.api.getPatient(id)
       .subscribe(data => {
         this.patient = data;
-        console.log("data");
-        console.log(data);
-        console.log("patient");
         console.log(this.patient);
         this.isLoadingResults = false;
       });

@@ -16,7 +16,8 @@ export class PatientAddComponent implements OnInit {
   email:string;
   fileNo:number;
   citizenId:string='';
-  Birthdate:Date;
+  birthdate:Date;
+  firstVisitDate:Date;
   Gender:string='';
   Vip:boolean;
   message:string='';
@@ -32,7 +33,8 @@ export class PatientAddComponent implements OnInit {
       email:new FormControl(),
       fileNo:new FormControl(),
       citizenId:new FormControl(),
-      Birthdate:new FormControl(),
+      birthdate:new FormControl(),
+      firstVisitDate:new FormControl(),
       Gender:new FormControl(),
       Vip:new FormControl(),
 
@@ -41,24 +43,37 @@ export class PatientAddComponent implements OnInit {
       'name' : [null, Validators.required],
       'nationality' : [null, Validators.required],
       'phoneNumber' : [null, Validators.required],
-      'email' : [null, Validators.required],
+      'email' : [null, Validators.email],
       'fileNo':[null, Validators.required],
       'citizenId':[null, Validators.required],
-      'Birthdate':[null, Validators.required],
+      'birthdate':[null],
+      'firstVisitDate':[null],
       'Gender':[null, Validators.required],
-      'Vip':[null, Validators.required],
+      'Vip':[null]
     });
   }
   onFormSubmit(form:NgForm) {
     this.isLoadingResults = true;
     this.api.addPatient(form)
       .subscribe(res => {
+          this.findInvalidControls();
           this.isLoadingResults = false;
           this.message="Success!";
         }, (err) => {
+          this.findInvalidControls();
           console.log(err);
           this.message = err;
           this.isLoadingResults = false;
         });
   }
+  public findInvalidControls() {
+    const invalid = [];
+    const controls = this.patientForm.controls;
+    for (const name in controls) {
+        if (controls[name].invalid) {
+            console.log(name);
+        }
+    }
+    return invalid;
+}
 }

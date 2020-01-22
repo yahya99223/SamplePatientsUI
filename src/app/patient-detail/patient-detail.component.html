@@ -12,12 +12,22 @@
       </mat-card-header>
       <mat-card-content>
         <dl>
-          <dt>Patient Nationality:</dt>
+          <dt>Id:</dt>
+          <dd>{{patient.id}}</dd>
+          <dt>Nationality:</dt>
           <dd>{{patient.nationality}}</dd>
-          <dt>First Visit At:</dt>
+          <dt>FileNo:</dt>
+          <dd>{{patient.fileNo}}</dd>
+          <dt>PhoneNumber:</dt>
+          <dd>{{patient.phoneNumber}}</dd>
+          <dt>Email:</dt>
+          <dd>{{patient.email}}</dd>
+          <dt>First Visit:</dt>
           <dd>{{patient.firstVisitDate | date}}</dd>
+          <dt>Birthdate:</dt>
+          <dd>{{patient.birthdate | date}}</dd>
         </dl>
-        <img src={{patient.image}}/>
+        <img src={{patient.photo}}/>
       </mat-card-content>
       <mat-card-actions>
         <a mat-flat-button color="warn" (click)="deletePatient(patient.id)"><mat-icon>delete</mat-icon></a>
