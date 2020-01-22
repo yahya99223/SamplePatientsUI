@@ -9,6 +9,7 @@ import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Valida
   styleUrls: ['./patient-add.component.css']
 })
 export class PatientAddComponent implements OnInit {
+  selectedFile: File
   patientForm: FormGroup;
   name:string='';
   nationality:string='';
@@ -56,24 +57,19 @@ export class PatientAddComponent implements OnInit {
     this.isLoadingResults = true;
     this.api.addPatient(form)
       .subscribe(res => {
-          this.findInvalidControls();
+        if(this.selectedFile!=null)
+        {
+          this.api.addPatientPhoto(res.id,this.selectedFile);
+        }
           this.isLoadingResults = false;
           this.message="Success!";
         }, (err) => {
-          this.findInvalidControls();
           console.log(err);
           this.message = err;
           this.isLoadingResults = false;
         });
   }
-  public findInvalidControls() {
-    const invalid = [];
-    const controls = this.patientForm.controls;
-    for (const name in controls) {
-        if (controls[name].invalid) {
-            console.log(name);
-        }
-    }
-    return invalid;
+onFileChanged(event) {
+  this.selectedFile = event.target.files[0];
 }
 }

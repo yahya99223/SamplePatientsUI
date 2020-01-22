@@ -21,3 +21,6 @@ Photo:String;
 FirstVisitDate:Date;
 RecordCreationDate:Date;
 }
+export class CreateResponse{
+    id:String;
+}

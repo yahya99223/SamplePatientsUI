@@ -89,6 +89,12 @@
                 <span *ngIf="!patientForm.get('email').valid && patientForm.get('email').touched">Please enter a valid Email</span>
               </mat-error>
             </mat-form-field>
+
+              <label>Photo</label>
+              <input  style="display: none" type="file" (change)="onFileChanged($event)" #fileInput>
+              <button (click)="fileInput.click()">Select File</button>
+
+
             <div class="button-row">
               <button type="submit"  mat-flat-button color="primary"><mat-icon>save</mat-icon></button>
             </div>

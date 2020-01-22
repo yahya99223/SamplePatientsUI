@@ -27,7 +27,7 @@
           <dt>Birthdate:</dt>
           <dd>{{patient.birthdate | date}}</dd>
         </dl>
-        <img src={{patient.photo}}/>
+        <img src={{patient.photo}} style="max-width:500px"/>
       </mat-card-content>
       <mat-card-actions>
         <a mat-flat-button color="warn" (click)="deletePatient(patient.id)"><mat-icon>delete</mat-icon></a>
