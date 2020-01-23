@@ -25,7 +25,7 @@ export class HospitalApiService {
   addPatient (Patient): Observable<CreateResponse> {
     const url = `${apiUrl}/patient/`;
     return this.http.post<CreateResponse>(url, Patient, httpOptions).pipe(
-      tap((Patient: CreateResponse) => console.log(`added Patient w/ id=${Patient.Id}`)),
+      tap((Patient: CreateResponse) => console.log(`added Patient w/ id=${Patient.id}`)),
       catchError(this.handleError('addPatient'))
     );
   }
